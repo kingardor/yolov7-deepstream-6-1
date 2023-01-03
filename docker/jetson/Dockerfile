@@ -27,6 +27,8 @@ RUN apt-get update && \
         rm -rf /var/lib/apt/lists/* && \
         apt autoremove
 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y libboost-all-dev libgnutls28-dev \
+    rm -rf /var/lib/apt/lists/*  
 
 # adding Cuda missing symlinks in base docker
 RUN ln -s /usr/local/cuda-11.4/targets/aarch64-linux/lib/libcufft.so.10 /usr/local/cuda-11.4/targets/aarch64-linux/lib/libcufft.so

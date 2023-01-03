@@ -89,6 +89,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libegl1-mesa-dev && \
     rm -rf /var/lib/apt/lists/*
 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y libboost-all-dev libgnutls28-dev \
+    rm -rf /var/lib/apt/lists/*    
+
 # Install DeepStreamSDK using debian package. DeepStream tar package can also be installed in a similar manner
 ADD deepstream-6.1_6.1.1-1_amd64.deb /root
 
@@ -103,3 +106,6 @@ RUN ln -s /usr/lib/x86_64-linux-gnu/libnvidia-encode.so.1 /usr/lib/x86_64-linux-
 
 # To get video driver libraries at runtime (libnvidia-encode.so/libnvcuvid.so)
 ENV NVIDIA_DRIVER_CAPABILITIES $NVIDIA_DRIVER_CAPABILITIES,video,compute,graphics,utility
+
+ENV CUDA_HOME=/usr/local/cuda
+ENV CFLAGS="-I$CUDA_HOME/include $CFLAGS"
