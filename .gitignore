@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Engines
+*.engine
+
+ds-app
+inputsources.txt
