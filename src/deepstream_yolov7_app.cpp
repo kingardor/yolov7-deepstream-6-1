@@ -519,7 +519,7 @@ namespace YOLOv7 {
 
     // Engine Paths
     PGIE_YOLO_ENGINE_PATH =
-    str(boost::format("models/YOLOv7/YOLOv7.weights_b%d_gpu0_%s.engine") % batch_size % COMPUTE_MODE);
+    str(boost::format("models/YOLOv7/yolov7.weights_b%d_gpu0_%s.engine") % batch_size % COMPUTE_MODE);
   }
 }
 
